@@ -52,6 +52,16 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         MessageModel messageModel = messageModelList.get(position);
         holder.receiverMessage.setVisibility(View.INVISIBLE);
