@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainMessageLayout">
+
+    <LinearLayout
+        android:id="@+id/receiverFile"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/receiver_messages_layout"
+        android:layout_marginVertical="2dp"
+        android:padding="8dp"
+        android:layout_marginHorizontal="10dp">
+
+        <TextView
+            android:id="@+id/fileReceiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pink"
+            android:layout_marginBottom="2dp"
+            android:text="name"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/file_image" />
+
+            <TextView
+                android:id="@+id/receiverFileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="filename.ext"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="2dp"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/receiverMessageLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="2dp"
+        android:padding="8dp"
+        android:background="@drawable/receiver_messages_layout">
+
+        <TextView
+            android:id="@+id/receiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pink"
+            android:text="name"
+            />
+
+        <TextView
+            android:id="@+id/receiverMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:textColor="@color/black"
+            
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/senderMessage"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sender Message"
+        android:layout_marginVertical="2dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/sender_messages_layout"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/senderFile"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sender_messages_layout"
+        android:padding="10dp"
+        android:layout_marginVertical="2dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/file_image" />
+
+        <TextView
+            android:id="@+id/senderFileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="filename.ext"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="2dp"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

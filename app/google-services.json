@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981123203202",
+    "project_id": "note-sharing-mini-project-app",
+    "storage_bucket": "note-sharing-mini-project-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981123203202:android:33d108e4494844adb0349b",
+        "android_client_info": {
+          "package_name": "com.example.notesharingminiprojectapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981123203202-injaueeqso2mq903pr40f87h9p7k1nhd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHrLkKJY9LZJ2uYn-e5yAFDdUA3eB2Zj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981123203202-injaueeqso2mq903pr40f87h9p7k1nhd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
