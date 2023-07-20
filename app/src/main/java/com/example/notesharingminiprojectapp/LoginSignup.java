@@ -49,7 +49,7 @@ public class LoginSignup extends AppCompatActivity {
             if(email.length() > 0 && password.length() > 0) {
                 login();                
             } else {
-                Toast.makeText(this, "Please Enter All Fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please Enter All Fields", Toast.LENGTH_LONG).show();
             }
 
         });
@@ -59,7 +59,7 @@ public class LoginSignup extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+        if(FirebaseAuth.getInstance().getCurrentUser() != null && getIntent().getStringExtra("message") == null) {
             startActivity(new Intent(LoginSignup.this,SubjectActivity.class));
             finish();
         }
@@ -76,7 +76,8 @@ public class LoginSignup extends AppCompatActivity {
                             startActivity(new Intent(LoginSignup.this,SubjectActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(LoginSignup.this, "Invalid Credentials: " + task.getException().toString(), Toast.LENGTH_LONG).show();
+                            String error[] = task.getException().toString().split(":");
+                            Toast.makeText(LoginSignup.this, error[1], Toast.LENGTH_LONG).show();
                         }
                     }
                 });

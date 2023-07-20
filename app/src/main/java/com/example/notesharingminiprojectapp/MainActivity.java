@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(subjectName);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getColor(R.color.light_blue)));
 
-        messageAdapter = new MessageAdapter(MainActivity.this);
+        messageAdapter = new MessageAdapter(MainActivity.this,subjectCode);
 
         binding.recycler.setAdapter(messageAdapter);
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));

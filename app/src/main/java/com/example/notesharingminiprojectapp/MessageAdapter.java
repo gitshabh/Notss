@@ -2,8 +2,10 @@ package com.example.notesharingminiprojectapp;
 
 import static android.view.View.TEXT_ALIGNMENT_TEXT_END;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -20,6 +22,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +30,12 @@ import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder>{
 
     private Context context;
+    private String subjectCode;
     private List<MessageModel> messageModelList;
 
-    public MessageAdapter(Context context) {
+    public MessageAdapter(Context context, String subjectCode) {
         this.context = context;
+        this.subjectCode = subjectCode;
         messageModelList = new ArrayList<>();
     }
 
@@ -108,6 +113,29 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                 long reference = manager.enqueue(request);
             }
+        });
+
+        holder.itemView.setOnLongClickListener(view -> {
+            if(messageModel.getSenderId().equals(FirebaseAuth.getInstance().getUid())){
+                new AlertDialog.Builder(context)
+                        .setTitle("Delete")
+                        .setMessage("Are you sure you want to delete this message?")
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                database.getReference().child("chats").child(subjectCode)
+                                        .child(messageModel.getMsgId())
+                                        .setValue(null);
+                            }
+                        }).setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
+            }
+            return false;
         });
     }
 
